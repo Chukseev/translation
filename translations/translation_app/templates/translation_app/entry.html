@@ -1,0 +1,14 @@
+{% extends "translation_app/base.html" %}
+
+{% block content %}
+<head><title>{{ entry }} </title></head>
+<h1>{{ entry }}</h1>
+<div>
+    <video width="640" height="360" controls>
+       <source src="videoplayback.mp4" type="video/mp4">
+        error
+    </video>
+</div>
+<div><div>{{ entry.description }}</div> <div>{{ entry.date_translation }}</div> </div>
+
+{% endblock content %}

@@ -1,0 +1,10 @@
+{% load static %}
+<head>
+    <link type="text/css" href="{% static 'translation_app/css/styles.css' %}" rel="stylesheet" />
+</head>
+<p>
+    <a href="{% url 'translation_app:index' %}">Главная</a>
+</p>
+
+{% block content %}{% endblock content %}
+
