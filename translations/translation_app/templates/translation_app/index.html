@@ -5,13 +5,25 @@
     <ul class="translations__list">
     {% for entry in entries %}
         <li class="translations__item">
-            <p class="translations__item-title">
-                {{ entry }}
-            </p>
-            <time datetime="">{{ entry.date_translation|date:"d.m.Y" }}</time><br/>
-            <a href="{% url 'translation_app:entry' entry.id %}" class="translations__item-link">Смотреть</a>
+            <a 
+                    href="{% url 'translation_app:entry' entry.id %}" 
+                    class="translations__item-link"
+            >
+                <img
+                        src="https://theanalyst.com/wp-content/uploads/2023/04/liverpool-vs-arsenal-prediction-1024x715.jpg"
+                        alt=""
+                        class="translations__item-preview"
+
+                >
+
+                <p class="translations__item-title">
+                    {{ entry }}
+                </p>
+                <time datetime="{{ entry.date_translation|date:'Y-m-d' }}">{{ entry.date_translation|date:"d.m.Y" }}</time><br/>
+            </a>
         </li>
+        {% endfor %}
     </ul>
-    {% endfor %}
+
     {% endblock content %}
 </section>

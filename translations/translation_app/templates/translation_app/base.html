@@ -40,18 +40,13 @@
         </nav>
     </header>
     <main class="content">
-        {% block content %}
-        {% endblock content %}
+        <div class="container">
+            {% block content %}
+            {% endblock content %}
+        </div>
     </main>
     <footer>
         someFooter
     </footer>
 </body>
 </html>
-
-
-<div class="topics">
-    {% for topic in topics %}
-        <div><a href="{% url 'translation_app:topic' topic.id %}"><b>{{ topic }}</b></a></div>
-    {% endfor %}
-</div>
