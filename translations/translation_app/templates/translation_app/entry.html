@@ -1,7 +1,8 @@
 {% extends "translation_app/base.html" %}
 
+{% block title %}{{ entry }}{% endblock %}
+
 {% block content %}
-<head><title>{{ entry }} </title></head>
 <h1>{{ entry }}</h1>
 <div>
     <video width="640" height="360" controls>
@@ -9,6 +10,8 @@
         error
     </video>
 </div>
-<div><div>{{ entry.description }}</div> <div>{{ entry.date_translation }}</div> </div>
-
+<div>
+    <div>{{ entry.description }}</div>
+    <div>{{ entry.date_translation }}</div>
+</div>
 {% endblock content %}
