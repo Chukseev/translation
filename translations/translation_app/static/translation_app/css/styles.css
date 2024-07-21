@@ -237,8 +237,8 @@ body {
 
 .header__menu-list {
     display: block;
-    opacity: 0;
-    visibility: hidden;
+    opacity: 100;
+    visibility: visible;
     pointer-events: none;
     position: absolute;
     right: -4px;
