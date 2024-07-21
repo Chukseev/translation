@@ -8,10 +8,10 @@
             <p class="translations__item-title">
                 {{ entry }}
             </p>
-            <time datetime="">{{ entry.date_translation }}</time><br/>
+            <time datetime="">{{ entry.date_translation|date:"d.m.Y" }}</time><br/>
             <a href="{% url 'translation_app:entry' entry.id %}" class="translations__item-link">Смотреть</a>
         </li>
+    </ul>
     {% endfor %}
     {% endblock content %}
 </section>
-

@@ -3,6 +3,6 @@
 {% block content %}
 <h1>{{ topic }}</h1>
 {% for entry in entries_in_topic %}
-    <div> <div><a href="{% url 'translation_app:entry' entry.id %}"><b>{{ entry }}</b></a></div>  <div>{{ entry.date_translation }}</div> </div>
+    <div> <div><a href="{% url 'translation_app:entry' entry.id %}"><b>{{ entry }}</b></a></div>  <div>{{ entry.date_translation|date:"d.m.Y" }}</div> </div>
 {% endfor %}
 {% endblock content %}
