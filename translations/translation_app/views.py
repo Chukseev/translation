@@ -11,14 +11,14 @@ def index(request):
 
 def entry(request, entry_id):
     entry = Entry.objects.get(id=entry_id)
-    context = {'entry': entry}
+    topics = Topic.objects.order_by('date_added')
+    context = {'entry': entry, 'topics': topics}
     return render(request, 'translation_app/entry.html', context)
 
 
 def topic(request, topic_id):
     entries_in_topic = Entry.objects.filter(topic=topic_id)
-    print(entries_in_topic)
     topic = Topic.objects.get(id=topic_id)
-    print(topic)
-    context = {'entries_in_topic': entries_in_topic, 'topic': topic}
+    topics = Topic.objects.order_by('date_added')
+    context = {'entries_in_topic': entries_in_topic, 'topic': topic, 'topics': topics}
     return render(request, 'translation_app/entry_in_topic.html', context)

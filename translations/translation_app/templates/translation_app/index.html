@@ -2,11 +2,6 @@
 
 {% block content %}
 {% for entry in entries %}
-    <div> <div><a href="{% url 'translation_app:entry' entry.id %}"><b>{{ entry }}</b></a></div>  <div>{{ entry.date_translation }}</div> </div>
+    <div> <div><a href="{% url 'translation_app:entry' entry.id %}"><b>{{ entry }}</b></a></div>  <div>{{entry.date_translation|date:"d.m.Y"}}</div> </div>
 {% endfor %}
-
-{% for topic in topics %}
-    <div><a href="{% url 'translation_app:topic' topic.id %}"><b>{{ topic }}</b></a></div>
-{% endfor %}
-
 {% endblock content %}

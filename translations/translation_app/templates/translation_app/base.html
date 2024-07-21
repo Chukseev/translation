@@ -8,3 +8,8 @@
 
 {% block content %}{% endblock content %}
 
+<div class="topics">
+    {% for topic in topics %}
+        <div><a href="{% url 'translation_app:topic' topic.id %}"><b>{{ topic }}</b></a></div>
+    {% endfor %}
+</div>
