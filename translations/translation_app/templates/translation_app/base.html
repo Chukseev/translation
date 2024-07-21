@@ -10,7 +10,7 @@
     <link type="text/css" href="{% static 'translation_app/css/styles.css' %}" rel="stylesheet" />
 </head>
 <body>
-    <header>
+    <header class="header">
         <a href="/" class="header__logo">
             <img
                 src="https://i.pinimg.com/originals/bc/d4/c7/bcd4c7a982569c67388fbcc99f193bcf.png"
@@ -21,6 +21,15 @@
         </a>
 <!--        <a class="header__to-main-link" href="{% url 'translation_app:index' %}">Главная</a>-->
         <nav class="header__menu">
+            <button
+                    type="button"
+                    class="header__menu-toggle"
+                    aria-label="Открыть меню">
+                <span class="visually-hidden">Открыть меню</span>
+                <span class="header__menu-toggle-line"></span>
+                <span class="header__menu-toggle-line"></span>
+                <span class="header__menu-toggle-line"></span>
+            </button>
             <ul class="header__menu-list">
                 {% for topic in topics %}
                 <li class="header__menu-item">

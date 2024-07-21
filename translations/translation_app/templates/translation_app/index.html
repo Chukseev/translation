@@ -1,7 +1,17 @@
 {% extends "translation_app/base.html" %}
 
 {% block content %}
-{% for entry in entries %}
-    <div> <div><a href="{% url 'translation_app:entry' entry.id %}"><b>{{ entry }}</b></a></div>  <div>{{ entry.date_translation }}</div> </div>
-{% endfor %}
-{% endblock content %}
+<section class="translations">
+    <ul class="translations__list">
+    {% for entry in entries %}
+        <li class="translations__item">
+            <p class="translations__item-title">
+                {{ entry }}
+            </p>
+            <time datetime="">{{ entry.date_translation }}</time><br/>
+            <a href="{% url 'translation_app:entry' entry.id %}" class="translations__item-link">Смотреть</a>
+        </li>
+    {% endfor %}
+    {% endblock content %}
+</section>
+
