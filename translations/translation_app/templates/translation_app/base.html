@@ -33,7 +33,7 @@
             <ul class="header__menu-list">
                 {% for topic in topics %}
                 <li class="header__menu-item">
-                    <a class="header__menu-link" href="{% url 'translation_app:topic' topic.id %}">{{ topic }}</a>
+                    <a class="header__menu-link" href="{% url 'translation_app:topic' topic %}">{{ topic }}</a>
                 </li>
                 {% endfor %}
             </ul>
