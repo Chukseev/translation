@@ -10,6 +10,6 @@
 
 <div class="topics">
     {% for topic in topics %}
-        <div><a href="{% url 'translation_app:topic' topic.id %}"><b>{{ topic }}</b></a></div>
+        <div><a href="{% url 'translation_app:topic' topic.text %}"><b>{{ topic }}</b></a></div>
     {% endfor %}
 </div>

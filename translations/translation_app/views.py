@@ -16,9 +16,9 @@ def entry(request, entry_id):
     return render(request, 'translation_app/entry.html', context)
 
 
-def topic(request, topic_id):
-    entries_in_topic = Entry.objects.filter(topic=topic_id)
-    topic = Topic.objects.get(id=topic_id)
+def topic(request, topic_name):
+    topic = Topic.objects.get(text=topic_name)
+    entries_in_topic = Entry.objects.filter(topic=topic.id)
     topics = Topic.objects.order_by('date_added')
     context = {'entries_in_topic': entries_in_topic, 'topic': topic, 'topics': topics}
     return render(request, 'translation_app/entry_in_topic.html', context)
