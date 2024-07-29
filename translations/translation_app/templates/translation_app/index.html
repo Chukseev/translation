@@ -1,5 +1,5 @@
 {% extends "translation_app/base.html" %}
-
+{% block title %}Трансляции{%endblock%}
 {% block content %}
 <section class="translations">
     <ul class="translations__list">
@@ -15,11 +15,16 @@
                         class="translations__item-preview"
 
                 >
-
-                <p class="translations__item-title">
-                    {{ entry }}
-                </p>
-                <time datetime="{{ entry.date_translation|date:'Y-m-d' }}">{{ entry.date_translation|date:"d.m.Y" }}</time><br/>
+                <div class="translations__item-info">
+                    <p
+                            class="translations__item-title"
+                            title="{{ entry }}"
+                    >{{ entry }}</p>
+                    <time
+                            datetime="{{ entry.date_translation|date:'Y-m-d' }}"
+                            class="translations__item-date"
+                    >{{ entry.date_translation|date:"d.m.Y" }}</time>
+                </div>
             </a>
         </li>
         {% endfor %}

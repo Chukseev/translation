@@ -1,8 +1,34 @@
 {% extends "translation_app/base.html" %}
-
+{% block title %}{{ topic }}{%endblock%}
 {% block content %}
-<h1>{{ topic }}</h1>
-{% for entry in entries_in_topic %}
-    <div> <div><a href="{% url 'translation_app:entry' entry.id %}"><b>{{ entry }}</b></a></div>  <div>{{ entry.date_translation|date:"d.m.Y" }}</div> </div>
-{% endfor %}
+<section class="translations">
+    <h1 class="topic-title">{{ topic }}</h1>
+    <ul class="translations__list">
+        {% for entry in entries_in_topic %}
+        <li class="translations__item">
+            <a
+                    href="{% url 'translation_app:entry' entry.id %}"
+                    class="translations__item-link"
+            >
+                <img
+                        src="https://theanalyst.com/wp-content/uploads/2023/04/liverpool-vs-arsenal-prediction-1024x715.jpg"
+                        alt=""
+                        class="translations__item-preview"
+
+                >
+                <div class="translations__item-info">
+                    <p
+                            title="{{ entry }}"
+                            class="translations__item-title">{{ entry }}
+                    </p>
+                    <time
+                            datetime="{{ entry.date_translation|date:'Y-m-d' }}"
+                            class="translations__item-date"
+                    >{{ entry.date_translation|date:"d.m.Y" }}</time>
+                </div>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
 {% endblock content %}

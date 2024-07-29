@@ -5,18 +5,18 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}mySite{% endblock %}</title>
+    <title>{% block title %}{% endblock %} | mySite</title>
     {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static 'translation_app/icons/favicon.ico' %}" >
     <link type="text/css" href="{% static 'translation_app/css/styles.css' %}" rel="stylesheet" />
 </head>
 <body>
     <header class="header">
         <a href="/" class="header__logo">
             <img
-                src="https://i.pinimg.com/originals/bc/d4/c7/bcd4c7a982569c67388fbcc99f193bcf.png"
+                src="{% static 'translation_app/icons/logo.png' %}"
                 alt=""
                 class="header__logo-image"
-                width="64"
             >
         </a>
 <!--        <a class="header__to-main-link" href="{% url 'translation_app:index' %}">Главная</a>-->
@@ -45,8 +45,52 @@
             {% endblock content %}
         </div>
     </main>
-    <footer>
-        someFooter
+    <footer class="footer">
+        © Iskra LTD.
     </footer>
+    <script>
+        const TITLE_CHAR_COUNT = 40;
+        const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        let switchButtonText = 'dark'
+        let switchButtonMode = 'light'
+        if (darkModeMediaQuery.matches){
+            document.body.toggleAttribute('dark')
+            switchButtonText = 'light'
+            switchButtonMode = 'dark'
+
+        }
+        else
+            switchButtonText = 'dark'
+        const changeTheme = () => {
+            console.log('fee')
+            const switchButton = document.querySelector('#theme-switch')
+            console.log(document.body.getAttribute('sdark'))
+            if (document.body.hasAttribute('dark')) {
+                document.body.removeAttribute('dark')
+                switchButton.toggleAttribute('light')
+                switchButtonMode = 'light'
+                switchButton.removeAttribute('dark')
+            }
+            else {
+                document.body.setAttribute('dark', '')
+                switchButton.toggleAttribute('dark')
+                switchButtonMode = 'dark'
+                switchButton.removeAttribute('light')
+            }
+
+        }
+        addEventListener('DOMContentLoaded', () => {
+            document.body.insertAdjacentHTML("beforeend", '' +
+                `    <button id="theme-switch" ${switchButtonMode} onclick="changeTheme()"></button>\n`)
+            const titles = document.querySelectorAll('.translations__item-title')
+            titles.forEach((title) => {
+                title.textContent = title.textContent.trim()
+                console.log('title-count:', title.textContent.length,'\ntitle:', title.textContent,'\n\n')
+                if (title.textContent.length > TITLE_CHAR_COUNT ) {
+                    title.textContent = title.textContent.slice(0, TITLE_CHAR_COUNT) + '...'
+                }
+            })
+        })
+    </script>
 </body>
 </html>

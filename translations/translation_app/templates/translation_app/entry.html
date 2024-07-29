@@ -3,15 +3,25 @@
 {% block title %}{{ entry }}{% endblock %}
 
 {% block content %}
-<h1>{{ entry }}</h1>
-<div>
-    <video width="640" height="360" controls>
-       <source src="videoplayback.mp4" type="video/mp4">
-        error
+<section class="translation-card">
+    <video
+            class="translation-card__video"
+            controls
+    >
+        <source src="../../static/translation_app/media/videoplayback.mp4" type="video/mp4">
     </video>
-</div>
-<div>
-    <div>{{ entry.description }}</div>
-    <div>{{ entry.date_translation|date:"d.m.Y" }}</div>
-</div>
+    <div class="translation-card__info-container">
+        <div class="translation-card__info">
+            <h1
+                    title="{{ entry }}"
+                    class="translation-card__info-title">{{ entry }}</h1>
+            <time
+                    datetime="{{ entry.date_translation|date:'Y-m-d' }}"
+                    class="translation-card__info-date"
+            >Начало трансляции: {{ entry.date_translation|date:"d.m.Y" }}</time>
+            <p class="translation-card__info-description">{{ entry.description }}</p>
+        </div>
+    </div>
+
+</section>
 {% endblock content %}
