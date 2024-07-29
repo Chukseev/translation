@@ -200,6 +200,9 @@ svg * {
     --color-background-color: #ffffff;
     /*--color-item-background-color: #e5e5e5;*/
     --color-item-background-color: #e5e5e5;
+    --color-item-background-color-light: #eeeeee;
+    --color-item-background-color-dark: #c4c4c4;
+
     --color-item-shadow-color: #868686;
     --color-accent-color: #FFBF00;
 
@@ -216,7 +219,7 @@ svg * {
     right: 10px;
     bottom: 10px;
     opacity: 30%;
-    width: 64px;
+    width: 40px;
     aspect-ratio: 1;
     border-radius: 50%;
     background-color: var(--color-text-color);
@@ -241,11 +244,11 @@ svg * {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 30px;
+    width: 20px;
     aspect-ratio: 1;
     background-color: orange;
     border-radius: 50%;
-    box-shadow: 0 0 25px 5px yellow,0 0 25px 10px yellow inset
+    box-shadow: 0 0 15px 5px yellow,0 0 25px 10px yellow inset
 }
 #theme-switch[light]::before {
     content: '';
@@ -253,7 +256,7 @@ svg * {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 30px;
+    width: 20px;
     aspect-ratio: 1;
     background-color: gray;
     border-radius: 50%;
@@ -267,7 +270,7 @@ svg * {
     top: 50%;
     left: 50%;
     transform: translate(0%, -60%);
-    width: 20px;
+    width: 15px;
     aspect-ratio: 1;
     background-color: var(--color-text-color);
     border-radius: 50%;
@@ -303,6 +306,8 @@ body[dark] {
     --color-text-color: #fff;
     /*--color-item-background-color: #313131;*/
     --color-item-background-color: #282828;
+    --color-item-background-color-light: #464646;
+    --color-item-background-color-dark: #2a2a2a;
     --color-item-shadow-color: #131313;
     --color-accent-color: #FFBF00;
 }
@@ -311,6 +316,32 @@ body[dark] {
     max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
     margin-inline: auto;
     padding-inline: var(--container-padding-x);
+}
+
+.button {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    align-items: center;
+    min-width: 80px;
+
+    border: none;
+    background-color: var(--color-background-color);
+    color: var(--color-text-color);
+    /*background-color: brown;*/
+    border-radius: 4px;
+    box-shadow: 0px 2px 5px 0px var(--color-item-shadow-color);
+    padding: 6px 14px;
+}
+
+.button:hover {
+    /*background-color: var(--color-item-background-color);*/
+    background-color: var(--color-item-background-color-light);
+}
+
+.button:active {
+    /*background-color: var(--color-item-background-color);*/
+    background-color: var(--color-item-background-color-dark);
 }
 
 .header {
@@ -519,7 +550,25 @@ body[dark] {
 .translation-card__info-date {
     font-size: 14px;
     display: block;
+    margin-bottom: 20px;
+}
+
+
+.translation-card__info-button {
     margin-bottom: 40px;
+    padding: 10px 10px 5px 10px;
+    align-items: flex-start;
+}
+/*TODO: сделать плавной */
+.translation-card__info-button:hover {
+    transform: scale(105%);
+}
+
+.translation-card__info-button__icon {
+    display: block;
+    width: 28px;
+    aspect-ratio: 1;
+    /*margin-right: 10px;*/
 }
 
 .translation-card__info-description {

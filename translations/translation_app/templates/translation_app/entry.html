@@ -19,6 +19,15 @@
                     datetime="{{ entry.date_translation|date:'Y-m-d' }}"
                     class="translation-card__info-date"
             >Начало трансляции: {{ entry.date_translation|date:"d.m.Y" }}</time>
+            <button
+                    class="translation-card__info-button button"
+            >
+                <img
+                        src="../../static/translation_app/icons/donation_alerts_logo_yellow.svg"
+                        alt=""
+                        class="translation-card__info-button__icon">
+                <p class="translation-card__info-button-text">Поддержать</p>
+            </button>
             <p class="translation-card__info-description">{{ entry.description }}</p>
         </div>
     </div>
