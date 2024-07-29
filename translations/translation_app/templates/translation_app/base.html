@@ -1,15 +1,96 @@
-{% load static %}
+<!doctype html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %} | Искра</title>
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static 'translation_app/icons/favicon.ico' %}" >
     <link type="text/css" href="{% static 'translation_app/css/styles.css' %}" rel="stylesheet" />
 </head>
-<p>
-    <a href="{% url 'translation_app:index' %}">Главная</a>
-</p>
+<body>
+    <header class="header">
+        <a href="/" class="header__logo">
+            <img
+                src="{% static 'translation_app/icons/logo.png' %}"
+                alt=""
+                class="header__logo-image"
+            >
+        </a>
+<!--        <a class="header__to-main-link" href="{% url 'translation_app:index' %}">Главная</a>-->
+        <nav class="header__menu">
+            <button
+                    type="button"
+                    class="header__menu-toggle"
+                    aria-label="Открыть меню">
+                <span class="visually-hidden">Открыть меню</span>
+                <span class="header__menu-toggle-line"></span>
+                <span class="header__menu-toggle-line"></span>
+                <span class="header__menu-toggle-line"></span>
+            </button>
+            <ul class="header__menu-list">
+                {% for topic in topics %}
+                <li class="header__menu-item">
+                    <a class="header__menu-link" href="{% url 'translation_app:topic' topic.id %}">{{ topic }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </header>
+    <main class="content">
+        <div class="container">
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </main>
+    <footer class="footer">
+        © Iskra LTD.
+    </footer>
+    <script>
+        const TITLE_CHAR_COUNT = 40;
+        const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        let switchButtonText = 'dark'
+        let switchButtonMode = 'light'
+        if (darkModeMediaQuery.matches){
+            document.body.toggleAttribute('dark')
+            switchButtonText = 'light'
+            switchButtonMode = 'dark'
 
-{% block content %}{% endblock content %}
+        }
+        else
+            switchButtonText = 'dark'
+        const changeTheme = () => {
+            console.log('fee')
+            const switchButton = document.querySelector('#theme-switch')
+            console.log(document.body.getAttribute('sdark'))
+            if (document.body.hasAttribute('dark')) {
+                document.body.removeAttribute('dark')
+                switchButton.toggleAttribute('light')
+                switchButtonMode = 'light'
+                switchButton.removeAttribute('dark')
+            }
+            else {
+                document.body.setAttribute('dark', '')
+                switchButton.toggleAttribute('dark')
+                switchButtonMode = 'dark'
+                switchButton.removeAttribute('light')
+            }
 
-<div class="topics">
-    {% for topic in topics %}
-        <div><a href="{% url 'translation_app:topic' topic.text %}"><b>{{ topic }}</b></a></div>
-    {% endfor %}
-</div>
+        }
+        addEventListener('DOMContentLoaded', () => {
+            document.body.insertAdjacentHTML("beforeend", '' +
+                `    <button id="theme-switch" ${switchButtonMode} onclick="changeTheme()"></button>\n`)
+            const titles = document.querySelectorAll('.translations__item-title')
+            titles.forEach((title) => {
+                title.textContent = title.textContent.trim()
+                console.log('title-count:', title.textContent.length,'\ntitle:', title.textContent,'\n\n')
+                if (title.textContent.length > TITLE_CHAR_COUNT ) {
+                    title.textContent = title.textContent.slice(0, TITLE_CHAR_COUNT) + '...'
+                }
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,31 +1,658 @@
-h1{
-	font-family: Arial;
-	font-size: 23px;
-	font-weight: bold;
-	color: #FFFFFF;
-	text-shadow:
-		-0   -2px 0   #000000,
-		 0   -2px 0   #000000,
-		-0    2px 0   #000000,
-		 0    2px 0   #000000,
-		-2px -0   0   #000000,
-		 2px -0   0   #000000,
-		-2px  0   0   #000000,
-		 2px  0   0   #000000,
-		-1px -2px 0   #000000,
-		 1px -2px 0   #000000,
-		-1px  2px 0   #000000,
-		 1px  2px 0   #000000,
-		-2px -1px 0   #000000,
-		 2px -1px 0   #000000,
-		-2px  1px 0   #000000,
-		 2px  1px 0   #000000,
-		-2px -2px 0   #000000,
-		 2px -2px 0   #000000,
-		-2px  2px 0   #000000,
-		 2px  2px 0   #000000,
-		-2px -2px 0   #000000,
-		 2px -2px 0   #000000,
-		-2px  2px 0   #000000,
-		 2px  2px 0   #000000;
+/**
+  Нормализация блочной модели
+ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+    padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure):where([class]) {
+    margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   h6,
+   p,
+   ul,
+   ol,
+   dl
+ ):where([class]) {
+    margin-block: 0;
+}
+
+:where(dd[class]) {
+    margin-left: 0;
+}
+
+:where(fieldset[class]) {
+    margin-left: 0;
+    padding: 0;
+    border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+    list-style: none;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+ */
+p {
+    --paragraphMarginBottom: 24px;
+
+    margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+ */
+p:where(:not([class]):not(:last-child)) {
+    margin-bottom: var(--paragraphMarginBottom);
+}
+
+
+/**
+  Упрощаем работу с изображениями
+ */
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+    font: inherit;
+}
+
+html {
+    /**
+      Пригодится в большинстве ситуаций
+      (когда, например, нужно будет "прижать" футер к низу сайта)
+     */
+    height: 100%;
+    /**
+      Плавный скролл
+     */
+    scroll-behavior: smooth;
+}
+
+body {
+    /**
+      Пригодится в большинстве ситуаций
+      (когда, например, нужно будет "прижать" футер к низу сайта)
+     */
+    min-height: 100%;
+    /**
+      Унифицированный интерлиньяж
+     */
+    line-height: 1.5;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+ */
+svg *[fill] { fill: currentColor }
+svg *[stroke] { stroke: currentColor }
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+    transition-property: fill, stroke;
+}
+
+/**
+  Удаляем все анимации и переходы для людей,
+  которые предпочитают их не использовать
+ */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('../fonts/Oswald-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto Mono';
+    src: url('../fonts/RobotoMono-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto Mono';
+    src: url('../fonts/RobotoMono-Italic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+
+
+
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    border: 0 !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+    clip-path: inset(100%) !important;
+    clip: rect(0 0 0 0) !important;
+    overflow: hidden !important;
+}
+
+:root {
+    /*--color-dark: #000000;*/
+    /*--color-dark-alternate: #131619;*/
+    /*--color-light: #FFFFFF;*/
+    /*--color-dark-gray: #404040;*/
+    /*--color-light-gray: #C4C4C4;*/
+    --color-text-color: #000;
+    --color-background-color: #ffffff;
+    /*--color-item-background-color: #e5e5e5;*/
+    --color-item-background-color: #e5e5e5;
+    --color-item-background-color-light: #eeeeee;
+    --color-item-background-color-dark: #c4c4c4;
+
+    --color-item-shadow-color: #868686;
+    --color-accent-color: #FFBF00;
+
+    --container-width: 1300px;
+    --container-padding-x: 15px;
+    --transition-duration: 0.2s;
+    --videoplayer-radius: 10px;
+
+}
+
+#theme-switch {
+    display: inline-block;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    opacity: 30%;
+    width: 40px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: var(--color-text-color);
+    color: var(--color-background-color);
+
+}
+
+/*#theme-switch[dark]::before {*/
+/*    content: '';*/
+/*    margin: 0 auto;*/
+/*    display: block;*/
+/*    width: 30px;*/
+/*    aspect-ratio: 1;*/
+/*    border: 1px solid black;*/
+/*    border-radius: 50%;*/
+/*    background-color: yellow;*/
+/*}*/
+
+#theme-switch[dark]::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    aspect-ratio: 1;
+    background-color: orange;
+    border-radius: 50%;
+    box-shadow: 0 0 15px 5px yellow,0 0 25px 10px yellow inset
+}
+#theme-switch[light]::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    aspect-ratio: 1;
+    background-color: gray;
+    border-radius: 50%;
+    /*box-shadow: 0 0 35px 5px gray,0 0 25px 5px gray inset*/
+}
+
+#theme-switch[light]::after {
+    content: '';
+    opacity: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(0%, -60%);
+    width: 15px;
+    aspect-ratio: 1;
+    background-color: var(--color-text-color);
+    border-radius: 50%;
+
+}
+
+body * {
+    /*outline: red 1px solid;*/
+    /*transition: all var(--transition-duration);*/
+    /*transition: all 4s;*/
+    transition: background-color var(--transition-duration);
+}
+
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: var(--color-background-color);
+    color: var(--color-text-color);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto Mono", serif;
+    /*transition-duration: var(--transition-duration);*/
+    /*transition: all var(--transition-duration);*/
+    transition-duration: var(--transition-duration);
+}
+
+body[dark] {
+    --color-background-color: #333333;
+    --color-text-color: #fff;
+    /*--color-item-background-color: #313131;*/
+    --color-item-background-color: #282828;
+    --color-item-background-color-light: #464646;
+    --color-item-background-color-dark: #2a2a2a;
+    --color-item-shadow-color: #131313;
+    --color-accent-color: #FFBF00;
+}
+
+.container {
+    max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+    margin-inline: auto;
+    padding-inline: var(--container-padding-x);
+}
+
+.button {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    align-items: center;
+    min-width: 80px;
+
+    border: none;
+    background-color: var(--color-background-color);
+    color: var(--color-text-color);
+    /*background-color: brown;*/
+    border-radius: 4px;
+    box-shadow: 0px 2px 5px 0px var(--color-item-shadow-color);
+    padding: 6px 14px;
+}
+
+.button:hover {
+    /*background-color: var(--color-item-background-color);*/
+    background-color: var(--color-item-background-color-light);
+}
+
+.button:active {
+    /*background-color: var(--color-item-background-color);*/
+    background-color: var(--color-item-background-color-dark);
+}
+
+.header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    background-color: var(--color-background-color);
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 15px;
+    /*margin-bottom: 15px;*/
+    z-index: 1;
+    min-height: 80px;
+    box-shadow: 0 1px 10px var(--color-item-shadow-color);
+}
+
+.header__logo {
+
+}
+
+.header__logo-image {
+    width: 100px;
+    aspect-ratio: 1;
+    padding: 16px;
+}
+
+.header__menu {
+    position: relative;
+    display: inline-block;
+}
+
+
+
+.header__menu-list {
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    position: absolute;
+    right: -4px;
+    /*transition-delay: 2s;*/
+    transition-duration: 0.5s;
+    transform: translateY(-50%);
+
+    box-shadow: 0 5px 15px 0px var(--color-item-shadow-color);
+}
+
+.header__menu:hover .header__menu-list {
+    visibility: visible;
+    pointer-events: visible;
+    opacity: 100%;
+    transform: translateY(0%);
+}
+
+.header__menu-item {
+    text-align: center;
+    background-color: var(--color-background-color);
+}
+
+.header__menu-item:hover {
+    background-color: var(--color-item-background-color);
+}
+
+.header__menu-link {
+    background-color: transparent;
+    color: var(--color-text-color);
+    padding: 10px 25px;
+    display: block;
+}
+
+
+
+.header__menu-toggle {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 4px;
+    width: 40px;
+    aspect-ratio: 1;
+    padding-left: 8px;
+    background-color: var(--color-background-color);
+    border: none;
+    box-shadow: 0px 2px 5px 0 var(--color-item-shadow-color);
+    /*color: var(--color-light);*/
+    /*background-color: var(--color-item-background-color);*/
+
+    /*color: var(--color-accent-color);*/
+    /*border: black 1px solid;*/
+    transition-duration: var(--transition-duration);
+}
+
+.header__menu:hover .header__menu-toggle {
+    transform: scale(120%);
+}
+
+.header__menu-toggle-line {
+    text-align: center;
+    width: 16px;
+    height: 1px;
+    background-color: var(--color-text-color);
+}
+
+.content {
+    background-color: var(--color-background-color);
+    flex-grow: 1;
+    padding-block: 30px;
+}
+
+.translations {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.topic-title {
+    font-size: 48px;
+    margin-block: 20px;
+}
+
+.translations__list {
+    /*outline: 1px solid red;*/
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+
+.translations__item {
+    box-shadow: 0 5px 10px 0 var(--color-item-shadow-color);
+    color: var(--color-text-color);
+    /*outline: 1px solid green;*/
+    flex-shrink: 1;
+    max-width: calc(25% - 30px);
+}
+
+.translations__item-link {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-basis: calc(25% - 30px);
+    color: var(--color-text-color);
+
+    flex-grow: 1;
+}
+
+.translations__item-preview {
+    aspect-ratio: 1.5;
+}
+
+.translations__item-info {
+    padding: 10px;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.translations__item-title {
+    margin-top: 10px;
+    font-weight: 800;
+}
+
+
+
+.translation-card {
+    /*background-color: var(--color-item-background-color);*/
+    /*background-color: #000;*/
+    border-radius: var(--videoplayer-radius);
+    box-shadow: 0 1px 10px var(--color-item-shadow-color);
+}
+
+.translation-card__video {
+    width: 100%;
+    max-height: calc(100svh/2 - 50px);
+    border-radius: var(--videoplayer-radius) var(--videoplayer-radius) 0 0;
+    padding-inline: 20px;
+    /*margin-bottom: 40px;*/
+    background-color: #000;
+
+}
+
+.translation-card__info-container {
+    padding: 20px;
+    /*background-color: var(--color-item-background-color);*/
+    border-radius: 0 0 var(--videoplayer-radius) var(--videoplayer-radius);
+
+}
+
+.translation-card__info {
+    border-radius: var(--videoplayer-radius);
+    padding: 20px;
+    display: inline-block;
+}
+
+
+
+.translation-card__info-title {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.translation-card__info-date {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+
+.translation-card__info-button {
+    margin-bottom: 40px;
+    padding: 10px 10px 5px 10px;
+    align-items: flex-start;
+}
+/*TODO: сделать плавной */
+.translation-card__info-button:hover {
+    transform: scale(105%);
+}
+
+.translation-card__info-button__icon {
+    display: block;
+    width: 28px;
+    aspect-ratio: 1;
+    /*margin-right: 10px;*/
+}
+
+.translation-card__info-description {
+    word-wrap: break-word;
+    /*white-space: pre-wrap;*/
+    font-size: 16px;
+    overflow-y: auto;
+    max-height: 250px;
+}
+
+
+.footer {
+    background-color: var(--color-background-color);
+    padding-block: 20px;
+    box-shadow: 0 1px 10px var(--color-item-shadow-color);
+}
+
+@media (max-width: 1280px) {
+    .translations__item {
+        max-width: calc(33.33% - 30px);
+    }
+
+    .translations__item-info {
+        flex-basis: calc(33.33% - 30px);
+    }
+}
+
+@media (max-width: 867px) {
+    .header__logo-image {
+        width: 80px;
+        aspect-ratio: 1;
+        padding: 16px;
+    }
+
+
+    .topic-title {
+        font-size: 36px;
+        margin-block: 12px;
+    }
+    .translations__item {
+        max-width: calc(50% - 30px);
+    }
+    .translations__item-info {
+        flex-basis: calc(50% - 30px);
+    }
+
+    .translation-card__info-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+}
+
+@media (max-width: 525px) {
+    .content {
+        padding-block: 10px;
+    }
+    .translations__item {
+        max-width: 100%;
+    }
+    .translations__item-info {
+        flex-basis: 100%;
+    }
+
+    .translation-card__video {
+        padding-inline: 0px;
+    }
+
+    .translation-card__info {
+        padding: 0px;
+    }
+    .translation-card__info-container {
+        padding: 10px;
+    }
+
+    .translation-card__info-title {
+        font-size: 18px;
+    }
+
+    .translation-card__info-date {
+        font-size: 12px;
+    }
+
+    .translation-card__info-description {
+        font-size: 14px;
+    }
 }

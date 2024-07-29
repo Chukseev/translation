@@ -1,14 +1,36 @@
 {% extends "translation_app/base.html" %}
 
-{% block content %}
-<head><title>{{ entry }} </title></head>
-<h1>{{ entry }}</h1>
-<div>
-    <video width="640" height="360" controls>
-       <source src="videoplayback.mp4" type="video/mp4">
-        error
-    </video>
-</div>
-<div><div>{{ entry.description }}</div> <div>{{ entry.date_translation|date:"d.m.Y" }}</div> </div>
+{% block title %}{{ entry }}{% endblock %}
 
+{% block content %}
+<section class="translation-card">
+    <video
+            class="translation-card__video"
+            controls
+    >
+        <source src="../../static/translation_app/media/videoplayback.mp4" type="video/mp4">
+    </video>
+    <div class="translation-card__info-container">
+        <div class="translation-card__info">
+            <h1
+                    title="{{ entry }}"
+                    class="translation-card__info-title">{{ entry }}</h1>
+            <time
+                    datetime="{{ entry.date_translation|date:'Y-m-d' }}"
+                    class="translation-card__info-date"
+            >Начало трансляции: {{ entry.date_translation|date:"d.m.Y" }}</time>
+            <button
+                    class="translation-card__info-button button"
+            >
+                <img
+                        src="../../static/translation_app/icons/donation_alerts_logo_yellow.svg"
+                        alt=""
+                        class="translation-card__info-button__icon">
+                <p class="translation-card__info-button-text">Поддержать</p>
+            </button>
+            <p class="translation-card__info-description">{{ entry.description }}</p>
+        </div>
+    </div>
+
+</section>
 {% endblock content %}
