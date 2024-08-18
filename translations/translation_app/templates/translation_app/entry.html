@@ -4,7 +4,7 @@
 <!--entry.src_donation-->
 {% block content %}
 <section class="translation-card">
-    <iframe src="{{ entry.src_video }}" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+    <iframe class="translation-card__video" src="{{ entry.src_video }}" width="640" height="360" frameborder="0" allowfullscreen></iframe>
     <div class="translation-card__info-container">
         <div class="translation-card__info">
             <h1
@@ -14,15 +14,16 @@
                     datetime="{{ entry.date_translation|date:'Y-m-d' }}"
                     class="translation-card__info-date"
             >Начало трансляции: {{ entry.date_translation|date:"d.m.Y" }}</time>
-            <button
+            <a
                     class="translation-card__info-button button"
+                    href={{ entry.src_donation }}
             >
                 <img
                         src="../../static/translation_app/icons/donation_alerts_logo_yellow.svg"
                         alt=""
                         class="translation-card__info-button__icon">
                 <p class="translation-card__info-button-text">Поддержать</p>
-            </button>
+            </a>
             <p class="translation-card__info-description">{{ entry.description }}</p>
         </div>
     </div>
