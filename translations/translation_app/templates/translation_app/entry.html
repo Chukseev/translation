@@ -4,8 +4,7 @@
 
 {% block content %}
 <section class="translation-card">
-    <video width="640" height="360" controls> <source src="rtmp://192.168.1.64:1935/live" type="application/x-mpegURL">
-        Your browser does not support the video tag. </video>
+    <iframe src="{{ entry.src }}" width="640" height="360" frameborder="0" allowfullscreen></iframe>
     <div class="translation-card__info-container">
         <div class="translation-card__info">
             <h1

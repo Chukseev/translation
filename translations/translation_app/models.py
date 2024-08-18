@@ -15,6 +15,7 @@ class Entry(models.Model):
     description = models.TextField()
     date_translation = models.DateTimeField()
     date_added = models.DateTimeField(auto_now=True)
+    src = models.CharField(max_length=200)
 
     class Meta:
         verbose_name_plural = 'entries'
