@@ -1,15 +1,10 @@
 {% extends "translation_app/base.html" %}
 
 {% block title %}{{ entry }}{% endblock %}
-
+<!--entry.src_donation-->
 {% block content %}
 <section class="translation-card">
-    <video
-            class="translation-card__video"
-            controls
-    >
-        <source src="../../static/translation_app/media/videoplayback.mp4" type="video/mp4">
-    </video>
+    <iframe src="{{ entry.src_video }}" width="640" height="360" frameborder="0" allowfullscreen></iframe>
     <div class="translation-card__info-container">
         <div class="translation-card__info">
             <h1

@@ -1,2 +1,2 @@
 /translations/translation_app/settings.py
-ALLOWED_HOSTS = ['192.168.0.115']
+ALLOWED_HOSTS = ['192.168.0.115']git

@@ -1,6 +1,21 @@
 import os.path
 from pathlib import Path
 
+# AWS_ACCESS_KEY_ID = 'chukseev'
+# AWS_SECRET_ACCESS_KEY = 'chukseev'
+# AWS_STORAGE_BUCKET_NAME = 'your-bucket-name'
+# AWS_S3_ENDPOINT_URL = 'http://localhost:9000'
+# AWS_S3_REGION_NAME = 'us-east-1'
+# AWS_S3_USE_SSL = False  # Если MinIO работает без SSL
+# AWS_S3_VERIFY = False  # Отключить проверку SSL, если не используется
+#
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#
+# STATIC_URL = f'{AWS_S3_ENDPOINT_URL}/{AWS_STORAGE_BUCKET_NAME}/static/'
+# MEDIA_URL = f'{AWS_S3_ENDPOINT_URL}/{AWS_STORAGE_BUCKET_NAME}/media/'
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
