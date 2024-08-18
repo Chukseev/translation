@@ -1,0 +1,83 @@
+.topic-title {
+  font-size: 48px;
+  margin-block: 20px;
+
+  @include tablet {
+    font-size: 36px;
+    margin-block: 12px;
+  }
+}
+
+.translations {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__list {
+    /*outline: 1px solid red;*/
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    box-shadow: 0 5px 10px 0 var(--color-item-shadow-color);
+    color: var(--color-text-color);
+    /*outline: 1px solid green;*/
+    flex-shrink: 1;
+    max-width: calc(25% - 30px);
+
+    @include desktop {
+      max-width: calc(33.33% - 30px);
+    }
+
+    @include tablet {
+      max-width: calc(50% - 30px);
+    }
+
+    @include mobile {
+      max-width: 100%;
+    }
+
+    &-link {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-basis: calc(25% - 30px);
+      color: var(--color-text-color);
+
+      flex-grow: 1;
+    }
+
+    &-preview {
+      aspect-ratio: 1.5;
+    }
+
+    &-info {
+      padding: 10px;
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 5px;
+
+      @include desktop {
+        flex-basis: calc(33.33% - 30px);
+      }
+
+      @include tablet {
+        flex-basis: calc(50% - 30px);
+      }
+
+      @include mobile {
+        flex-basis: 100%;
+      }
+    }
+
+    &-title {
+      margin-top: 10px;
+      font-weight: 800;
+    }
+  }
+}

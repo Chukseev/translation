@@ -1,0 +1,13 @@
+@import "../../../../static/css/common";
+
+@import "variables";
+@import "mixins";
+@import "globals";
+@import "utils";
+@import "media";
+
+@import "components/themeSwitch";
+@import "components/header";
+@import "components/translations";
+@import "components/translationCard";
+@import "components/footer";
