@@ -1,5 +1,20 @@
 .footer {
+
   background-color: var(--color-background-color);
-  padding-block: 20px;
+  padding: 20px;
   box-shadow: 0 1px 10px var(--color-item-shadow-color);
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    //outline: 1px solid red;
+    text-align: center;
+    padding: 0;
+    margin-left: 30px;
+    height: 100%;
+  }
 }

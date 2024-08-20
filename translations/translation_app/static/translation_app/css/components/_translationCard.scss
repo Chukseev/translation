@@ -3,13 +3,17 @@
   /*background-color: #000;*/
   border-radius: var(--videoplayer-radius);
   box-shadow: 0 1px 10px var(--color-item-shadow-color);
+
+  @include tablet-above {
+    margin-inline: auto;
+    max-width: 1000px;
+  }
 }
 
 .translation-card__video {
   width: 100%;
   max-height: calc(100svh/2 - 50px);
   border-radius: var(--videoplayer-radius) var(--videoplayer-radius) 0 0;
-  padding-inline: 20px;
   /*margin-bottom: 40px;*/
   background-color: #000;
 
@@ -20,6 +24,11 @@
 }
 
 .translation-card__info-container {
+  //& * {
+  //  outline: 1px solid red;
+  //}
+
+  display: flex;
   padding: 20px;
   /*background-color: var(--color-item-background-color);*/
   border-radius: 0 0 var(--videoplayer-radius) var(--videoplayer-radius);
@@ -32,7 +41,9 @@
 .translation-card__info {
   border-radius: var(--videoplayer-radius);
   padding: 20px;
-  display: inline-block;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
 
   @include mobile {
     padding: 0px;
@@ -67,9 +78,9 @@
 
 
 .translation-card__info-button {
-  margin-bottom: 40px;
-  padding: 10px 10px 5px 10px;
-  align-items: flex-start;
+  display: inline-flex;
+
+  margin-block: 20px;
 }
 /*TODO: сделать плавной */
 .translation-card__info-button:hover {

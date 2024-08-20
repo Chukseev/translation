@@ -46,7 +46,19 @@
         </div>
     </main>
     <footer class="footer">
-        © Iskra LTD.
+        <div class="footer__container">
+            <p class="footer__title">© Iskra LTD.</p>
+            <div class="footer__socials">
+                <ul class="footer__socials-list">
+                    <li class="footer__socials-item">
+                        <a href="https://t.me/iskratranslation" class="footer__socials-link">
+                            <img src="{% static 'translation_app/icons/telegram-logo.svg' %}" width="40" height="40"  alt="telegram-logo" class="footer__socials-icon">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
     </footer>
     <script>
         const TITLE_CHAR_COUNT = 40;

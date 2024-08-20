@@ -1,7 +1,8 @@
 .content {
   background-color: var(--color-background-color);
   flex-grow: 1;
-  padding-block: 30px;
+  padding-block: 60px;
+
 
   @include mobile {
     padding-block: 10px;

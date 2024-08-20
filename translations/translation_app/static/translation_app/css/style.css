@@ -245,18 +245,20 @@ svg * {
 }
 
 .button {
-  display: flex;
-  gap: 14px;
+  display: inline-flex;
+  max-width: max-content;
+  width: auto;
+  flex-grow: 0;
+  flex-shrink: 0;
   justify-content: center;
-  align-items: center;
-  min-width: 80px;
-  border: none;
-  background-color: var(--color-background-color);
+  gap: 10px;
+  padding-inline: 15px;
+  padding-block: 10px;
   color: var(--color-text-color);
-  /*background-color: brown;*/
-  border-radius: 4px;
+  background-color: var(--color-background-color);
   box-shadow: 0px 2px 5px 0px var(--color-item-shadow-color);
-  padding: 6px 14px;
+  border: none;
+  border-radius: 4px;
 }
 
 .button:hover {
@@ -272,7 +274,7 @@ svg * {
 .content {
   background-color: var(--color-background-color);
   flex-grow: 1;
-  padding-block: 30px;
+  padding-block: 60px;
 }
 @media (max-width: 767px) {
   .content {
@@ -284,7 +286,7 @@ svg * {
   display: inline-block;
   position: fixed;
   right: 10px;
-  bottom: 10px;
+  bottom: 10vh;
   opacity: 30%;
   width: 40px;
   aspect-ratio: 1;
@@ -521,12 +523,17 @@ svg * {
   border-radius: var(--videoplayer-radius);
   box-shadow: 0 1px 10px var(--color-item-shadow-color);
 }
+@media (min-width: 1024px) {
+  .translation-card {
+    margin-inline: auto;
+    max-width: 1000px;
+  }
+}
 
 .translation-card__video {
   width: 100%;
   max-height: calc(50svh - 50px);
   border-radius: var(--videoplayer-radius) var(--videoplayer-radius) 0 0;
-  padding-inline: 20px;
   /*margin-bottom: 40px;*/
   background-color: #000;
 }
@@ -537,6 +544,7 @@ svg * {
 }
 
 .translation-card__info-container {
+  display: flex;
   padding: 20px;
   /*background-color: var(--color-item-background-color);*/
   border-radius: 0 0 var(--videoplayer-radius) var(--videoplayer-radius);
@@ -550,7 +558,9 @@ svg * {
 .translation-card__info {
   border-radius: var(--videoplayer-radius);
   padding: 20px;
-  display: inline-block;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
 }
 @media (max-width: 767px) {
   .translation-card__info {
@@ -586,9 +596,8 @@ svg * {
 }
 
 .translation-card__info-button {
-  margin-bottom: 40px;
-  padding: 10px 10px 5px 10px;
-  align-items: flex-start;
+  display: inline-flex;
+  margin-block: 20px;
 }
 
 /*TODO: сделать плавной */
@@ -618,8 +627,19 @@ svg * {
 
 .footer {
   background-color: var(--color-background-color);
-  padding-block: 20px;
+  padding: 20px;
   box-shadow: 0 1px 10px var(--color-item-shadow-color);
+}
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer__title {
+  text-align: center;
+  padding: 0;
+  margin-left: 30px;
+  height: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */
