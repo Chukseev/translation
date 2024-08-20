@@ -69,7 +69,6 @@
 .translation-card__info-date {
   font-size: 14px;
   display: block;
-  margin-bottom: 20px;
 
   @include mobile {
     font-size: 12px;
@@ -80,7 +79,7 @@
 .translation-card__info-button {
   display: inline-flex;
 
-  margin-block: 20px;
+  margin-block: 10px;
 }
 /*TODO: сделать плавной */
 .translation-card__info-button:hover {
@@ -100,6 +99,7 @@
   font-size: 16px;
   overflow-y: auto;
   max-height: 250px;
+  margin-top: 20px;
 
   @include mobile {
     font-size: 14px;
