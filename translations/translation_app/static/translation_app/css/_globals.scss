@@ -1,10 +1,10 @@
 .content {
   background-color: var(--color-background-color);
   flex-grow: 1;
-  padding-block: 60px;
+  //padding-block: 60px;
+  margin-block: 40px;
 
-
-  @include mobile {
-    padding-block: 10px;
+  @include tablet {
+    margin-block: 10px;
   }
 }

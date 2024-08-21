@@ -1,107 +1,37 @@
+
 .translation-card {
-  /*background-color: var(--color-item-background-color);*/
-  /*background-color: #000;*/
-  border-radius: var(--videoplayer-radius);
-  box-shadow: 0 1px 10px var(--color-item-shadow-color);
+  margin-inline: auto;
+  width: 100vh;
+  max-width: 100%;
+  overflow: hidden;
 
-  @include tablet-above {
-    margin-inline: auto;
-    max-width: 1000px;
-  }
-}
 
-.translation-card__video {
-  width: 100%;
-  max-height: calc(100svh/2 - 50px);
-  border-radius: var(--videoplayer-radius) var(--videoplayer-radius) 0 0;
-  /*margin-bottom: 40px;*/
-  background-color: #000;
-
-  @include mobile {
-    padding-inline: 0px;
+  &__video {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    background-color: #000;
+    border-radius: 10px;
   }
 
-}
-
-.translation-card__info-container {
-  //& * {
-  //  outline: 1px solid red;
-  //}
-
-  display: flex;
-  padding: 20px;
-  /*background-color: var(--color-item-background-color);*/
-  border-radius: 0 0 var(--videoplayer-radius) var(--videoplayer-radius);
-
-  @include mobile {
-    padding: 10px;
-  }
-}
-
-.translation-card__info {
-  border-radius: var(--videoplayer-radius);
-  padding: 20px;
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-
-  @include mobile {
-    padding: 0px;
-  }
-}
-
-
-
-.translation-card__info-title {
-  font-size: 22px;
-  margin-bottom: 10px;
-
-  @include tablet {
-    font-size: 24px;
-    margin-bottom: 10px;
+  &__info-container {
+    //margin-top: 10px;
+    margin-inline: 10px;
   }
 
-  @include mobile {
+  &__info-title {
     font-size: 18px;
+
+    @include mobile {
+      font-size: 16px;
+    }
   }
-}
 
-.translation-card__info-date {
-  font-size: 14px;
-  display: block;
-
-  @include mobile {
-    font-size: 12px;
+  &__info-button {
+    margin-top: 10px;
   }
-}
 
-
-.translation-card__info-button {
-  display: inline-flex;
-
-  margin-block: 10px;
-}
-/*TODO: сделать плавной */
-.translation-card__info-button:hover {
-  transform: scale(105%);
-}
-
-.translation-card__info-button__icon {
-  display: block;
-  width: 28px;
-  aspect-ratio: 1;
-  /*margin-right: 10px;*/
-}
-
-.translation-card__info-description {
-  word-wrap: break-word;
-  /*white-space: pre-wrap;*/
-  font-size: 16px;
-  overflow-y: auto;
-  max-height: 250px;
-  margin-top: 20px;
-
-  @include mobile {
-    font-size: 14px;
+  &__info-description {
+    margin-top: 20px;
   }
 }
