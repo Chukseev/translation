@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Topic, Entry
 
 
@@ -22,3 +22,15 @@ def topic(request, topic_name):
     topics = Topic.objects.order_by('date_added')
     context = {'entries_in_topic': entries_in_topic, 'topic': topic, 'topics': topics}
     return render(request, 'translation_app/entry_in_topic.html', context)
+
+
+def privacy(request):
+    topics = Topic.objects.order_by('date_added')
+    context = {'topics': topics}
+    return render(request, 'translation_app/privacy.html', context)
+
+
+def terms(request):
+    topics = Topic.objects.order_by('date_added')
+    context = {'topics': topics}
+    return render(request, 'translation_app/terms.html', context)
