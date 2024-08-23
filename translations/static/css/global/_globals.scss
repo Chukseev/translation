@@ -8,6 +8,10 @@ body * {
 
 a {
   text-decoration: none;
+  color: var(--color-text-color);
+  &:hover {
+    color: var(--color-text-color-accent);
+  }
 }
 
 ul, ol {
@@ -35,16 +39,17 @@ body {
   font-family: "Roboto Mono", serif;
   /*transition-duration: var(--transition-duration);*/
   /*transition: all var(--transition-duration);*/
-  transition-duration: var(--transition-duration);
+  transition-duration: 0.5s;
 }
 
 body[dark], html[data-theme="dark"] {
   --color-background-color: #333333;
   --color-text-color: #fff;
+  --color-text-color-accent: #b3b3b3;
   /*--color-item-background-color: #313131;*/
   --color-item-background-color: #282828;
   --color-item-background-color-light: #464646;
   --color-item-background-color-dark: #2a2a2a;
   --color-item-shadow-color: #131313;
-  --color-accent-color: #FFBF00;
+  --color-accent-color: #faec21;
 }

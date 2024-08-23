@@ -29,6 +29,10 @@ body * {
 
 a {
   text-decoration: none;
+  color: var(--color-text-color);
+}
+a:hover {
+  color: var(--color-text-color-accent);
 }
 
 ul, ol {
@@ -56,18 +60,19 @@ body {
   font-family: "Roboto Mono", serif;
   /*transition-duration: var(--transition-duration);*/
   /*transition: all var(--transition-duration);*/
-  transition-duration: var(--transition-duration);
+  transition-duration: 0.5s;
 }
 
 body[dark], html[data-theme=dark] {
   --color-background-color: #333333;
   --color-text-color: #fff;
+  --color-text-color-accent: #b3b3b3;
   /*--color-item-background-color: #313131;*/
   --color-item-background-color: #282828;
   --color-item-background-color-light: #464646;
   --color-item-background-color-dark: #2a2a2a;
   --color-item-shadow-color: #131313;
-  --color-accent-color: #FFBF00;
+  --color-accent-color: #faec21;
 }
 
 /**
@@ -247,6 +252,7 @@ svg * {
   /*--color-dark-gray: #404040;*/
   /*--color-light-gray: #C4C4C4;*/
   --color-text-color: #000;
+  --color-text-color-accent: #535353;
   --color-background-color: #ffffff;
   /*--color-item-background-color: #e5e5e5;*/
   --color-item-background-color: #e5e5e5;
@@ -271,7 +277,7 @@ svg * {
   gap: 10px;
   padding-inline: 15px;
   padding-block: 10px;
-  color: var(--color-text-color);
+  color: var(--color-text-color) !important;
   background-color: var(--color-background-color);
   box-shadow: 0px 2px 5px 0px var(--color-item-shadow-color);
   border: none;
@@ -709,19 +715,44 @@ svg * {
 
 .footer {
   background-color: var(--color-background-color);
-  padding: 20px;
   box-shadow: 0 1px 10px var(--color-item-shadow-color);
 }
 .footer__container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  padding-block: 40px;
+  padding-right: 40px;
 }
-.footer__title {
+@media (max-width: 767px) {
+  .footer__container {
+    justify-content: center;
+  }
+}
+.footer__info {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  color: var(--color-text-color);
+}
+.footer__copyright {
   text-align: center;
   padding: 0;
-  margin-left: 30px;
+  margin-top: 30px;
   height: 100%;
+}
+.footer__socials {
+  text-align: right;
+}
+.footer__socials-list {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.footer__socials-contacts {
+  margin-top: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */
