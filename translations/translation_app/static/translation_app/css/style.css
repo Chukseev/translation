@@ -718,11 +718,10 @@ svg * {
   box-shadow: 0 1px 10px var(--color-item-shadow-color);
 }
 .footer__container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding-block: 40px;
+  margin-inline: auto;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 20px;
   padding-right: 40px;
 }
 @media (max-width: 767px) {
@@ -730,29 +729,14 @@ svg * {
     justify-content: center;
   }
 }
-.footer__info {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  color: var(--color-text-color);
-}
-.footer__copyright {
-  text-align: center;
-  padding: 0;
-  margin-top: 30px;
-  height: 100%;
-}
-.footer__socials {
-  text-align: right;
-}
-.footer__socials-list {
-  margin-top: 10px;
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-}
-.footer__socials-contacts {
+.footer__contacts {
   margin-top: 20px;
+}
+.footer__contacts-item {
+  margin-top: 20px;
+}
+.footer__contacts-link {
+  display: inline-block;
 }
 
 /*# sourceMappingURL=style.css.map */
