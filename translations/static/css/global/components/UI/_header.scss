@@ -3,11 +3,69 @@
   position: sticky;
   top: 0;
   background-color: var(--color-background-color);
+  color: var(--color-text-color);
   justify-content: space-between;
   align-items: center;
   padding-inline: 15px;
   /*margin-bottom: 15px;*/
-  z-index: 1;
+  z-index: 10;
   min-height: 80px;
   box-shadow: 0 1px 10px var(--color-item-shadow-color);
+  gap: 20px;
+
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-title {
+      color: var(--color-text-color);
+      font-weight: 700;
+      font-size: 20px;
+
+      @include mobile {
+        display: none;
+      }
+
+      & a {
+        color: inherit;
+      }
+    }
+
+
+    &-image {
+      width: 100px;
+      aspect-ratio: 1;
+      padding: 16px;
+
+      @include tablet {
+        width: 80px;
+        aspect-ratio: 1;
+        padding: 16px;
+      }
+
+      @include mobile {
+        width: 40px;
+        aspect-ratio: 1;
+        padding: 0px;
+      }
+    }
+  }
+
+  &__menu {
+    &-item {
+      color: var(--color-text-color);
+    }
+
+    &-link {
+      color: var(--color-text-color);
+    }
+  }
+
+}
+
+#header {
+  background-color: var(--color-background-color);
+  color: var(--color-text-color);
 }

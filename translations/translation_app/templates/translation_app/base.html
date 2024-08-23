@@ -12,18 +12,20 @@
 </head>
 <body>
     <header class="header">
+
         <a href="/" class="header__logo">
             <img
                 src="{% static 'translation_app/icons/logo.png' %}"
                 alt=""
                 class="header__logo-image"
             >
+            <span class="header__logo-title">ISKRA Translations</span>
         </a>
 <!--        <a class="header__to-main-link" href="{% url 'translation_app:index' %}">Главная</a>-->
         <nav class="header__menu">
             <button
                     type="button"
-                    class="header__menu-toggle"
+                    class="header__menu-toggle burger-button"
                     aria-label="Открыть меню">
                 <span class="visually-hidden">Открыть меню</span>
                 <span class="header__menu-toggle-line"></span>
@@ -46,16 +48,38 @@
         </div>
     </main>
     <footer class="footer">
-        <div class="footer__container">
-            <p class="footer__title">© Iskra LTD.</p>
+        <div class="footer__container container">
+            <div class="footer__info">
+                <a href="" class="footer__link"><p>Политика конфиденциальности</p></a>
+                <a href="" class="footer__link"><p>Пользовательское соглашение</p></a>
+                <p class="footer__copyright">© 2024 «Iskra»</p>
+            </div>
+
             <div class="footer__socials">
+                <h3 class="footer__socials-title">На связи</h3>
                 <ul class="footer__socials-list">
                     <li class="footer__socials-item">
                         <a href="https://t.me/iskratranslation" class="footer__socials-link">
-                            <img src="{% static 'translation_app/icons/telegram-logo.svg' %}" width="40" height="40"  alt="telegram-logo" class="footer__socials-icon">
+                            <img src="{% static 'translation_app/icons/telegram-logo.svg' %}" width="30" height="30"  alt="telegram-logo" class="footer__socials-icon">
+                        </a>
+                    </li>
+                    <li class="footer__socials-item">
+                        <a href="https://t.me/iskratranslation" class="footer__socials-link">
+                            <img src="{% static 'translation_app/icons/telegram-logo.svg' %}" width="30" height="30"  alt="telegram-logo" class="footer__socials-icon">
+                        </a>
+                    </li>
+                    <li class="footer__socials-item">
+                        <a href="https://t.me/iskratranslation" class="footer__socials-link">
+                            <img src="{% static 'translation_app/icons/telegram-logo.svg' %}" width="30" height="30"  alt="telegram-logo" class="footer__socials-icon">
                         </a>
                     </li>
                 </ul>
+                <div class="footer__socials-contacts">
+                    <ul class="footer__socials-contacts-list">
+                        <li class="footer__socials-contacts-item"><a href="mailto: support@iskratranslation.ru">support@iskratranslation.ru</a></li>
+                    </ul>
+                </div>
+
             </div>
         </div>
 
