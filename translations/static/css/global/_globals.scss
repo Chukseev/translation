@@ -10,6 +10,22 @@ a {
   text-decoration: none;
 }
 
+ul, ol {
+  list-style: none;
+  padding-left: 0; /* Убирает отступы */
+}
+
+ul > li {
+  list-style-type: none;
+}
+
+li {
+  list-style-type: none;
+  &::marker {
+    list-style-type: none;
+  }
+}
+
 body {
   background-color: var(--color-background-color);
   color: var(--color-text-color);
@@ -22,7 +38,7 @@ body {
   transition-duration: var(--transition-duration);
 }
 
-body[dark] {
+body[dark], html[data-theme="dark"] {
   --color-background-color: #333333;
   --color-text-color: #fff;
   /*--color-item-background-color: #313131;*/

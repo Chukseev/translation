@@ -12,18 +12,20 @@
 </head>
 <body>
     <header class="header">
+
         <a href="/" class="header__logo">
             <img
                 src="{% static 'translation_app/icons/logo.png' %}"
                 alt=""
                 class="header__logo-image"
             >
+            <span class="header__logo-title">ISKRA Translations</span>
         </a>
 <!--        <a class="header__to-main-link" href="{% url 'translation_app:index' %}">Главная</a>-->
         <nav class="header__menu">
             <button
                     type="button"
-                    class="header__menu-toggle"
+                    class="header__menu-toggle burger-button"
                     aria-label="Открыть меню">
                 <span class="visually-hidden">Открыть меню</span>
                 <span class="header__menu-toggle-line"></span>

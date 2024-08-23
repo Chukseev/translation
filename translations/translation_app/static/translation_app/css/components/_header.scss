@@ -3,7 +3,6 @@
 }
 
 .header__logo {
-
 }
 
 .header__logo-image {
@@ -50,6 +49,9 @@
 .header__menu-item {
   text-align: center;
   background-color: var(--color-background-color);
+  & li {
+    list-style-type: none;
+  }
 }
 
 .header__menu-item:hover {
