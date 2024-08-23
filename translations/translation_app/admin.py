@@ -4,5 +4,5 @@ from .models import Topic, Entry
 admin.site.register(Topic)
 admin.site.register(Entry)
 
-admin.site.site_title = ''
-admin.site.site_header = ''
+admin.site.site_title = 'ISKRA Админ-панель' #то что на вкладке
+admin.site.site_header = 'ISKRA Translations' #То что в хедоре
