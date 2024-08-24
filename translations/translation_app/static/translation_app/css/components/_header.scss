@@ -1,19 +1,8 @@
 .header {
-  display: flex;
-  position: sticky;
-  top: 0;
-  background-color: var(--color-background-color);
-  justify-content: space-between;
-  align-items: center;
-  padding-inline: 15px;
-  /*margin-bottom: 15px;*/
-  z-index: 1;
-  min-height: 80px;
-  box-shadow: 0 1px 10px var(--color-item-shadow-color);
+
 }
 
 .header__logo {
-
 }
 
 .header__logo-image {
@@ -60,6 +49,9 @@
 .header__menu-item {
   text-align: center;
   background-color: var(--color-background-color);
+  & li {
+    list-style-type: none;
+  }
 }
 
 .header__menu-item:hover {
