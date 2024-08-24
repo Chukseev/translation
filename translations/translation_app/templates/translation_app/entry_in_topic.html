@@ -11,7 +11,8 @@
                     class="translations__item-link"
             >
                 <img
-                        src="https://theanalyst.com/wp-content/uploads/2023/04/liverpool-vs-arsenal-prediction-1024x715.jpg"
+                        src="{{ {% if i.Image %}
+                                    entry.image.url }}"
                         alt=""
                         class="translations__item-preview"
 
