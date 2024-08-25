@@ -1,4 +1,5 @@
 from django.db import models
+import os
 
 
 class Topic(models.Model):
@@ -17,7 +18,7 @@ class Entry(models.Model):
     date_added = models.DateTimeField(auto_now=True)
     src_video = models.CharField(max_length=200)
     src_donation = models.CharField(max_length=200)
-
+    image = models.ImageField(blank=True, upload_to='images/')
 
     class Meta:
         verbose_name_plural = 'entries'
