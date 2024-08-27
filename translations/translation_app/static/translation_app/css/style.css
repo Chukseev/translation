@@ -625,21 +625,21 @@ svg * {
   color: var(--color-text-color);
   /*outline: 1px solid green;*/
   flex-shrink: 1;
-  max-width: calc(25% - 30px);
+  width: calc(25% - 30px);
 }
 @media (max-width: 1280px) {
   .translations__item {
-    max-width: calc(33.33% - 30px);
+    width: calc(33.33% - 30px);
   }
 }
 @media (max-width: 1023px) {
   .translations__item {
-    max-width: calc(50% - 30px);
+    width: calc(50% - 30px);
   }
 }
 @media (max-width: 767px) {
   .translations__item {
-    max-width: 100%;
+    width: 100%;
   }
 }
 .translations__item-link {
