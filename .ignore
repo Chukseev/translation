@@ -1,3 +1,4 @@
 .venv/
 translations/translations/settings.py
 static/
+media/
