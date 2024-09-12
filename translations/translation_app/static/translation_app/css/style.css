@@ -651,7 +651,8 @@ svg * {
   color: var(--color-text-color);
   flex-grow: 1;
 }
-.translations__item-preview {
+.translations__item-previewContainer {
+  width: 100%;
   aspect-ratio: 1.5;
 }
 .translations__item-info {

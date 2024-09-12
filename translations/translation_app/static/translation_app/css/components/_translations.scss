@@ -50,8 +50,13 @@
       flex-grow: 1;
     }
 
-    &-preview {
+    &-previewContainer {
+      width: 100%;
       aspect-ratio: 1.5;
+    }
+
+    &-preview {
+
     }
 
     &-info {
