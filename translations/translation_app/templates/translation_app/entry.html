@@ -1,7 +1,7 @@
 {% extends "translation_app/base.html" %}
 
 {% block title %}{{ entry }}{% endblock %}
-<!--entry.src_donation-->
+
 {% block content %}
 <section class="translation-card">
     <iframe class="translation-card__video" src="{{ entry.src_video }}" width="640" height="360" frameborder="0" allowfullscreen></iframe>
@@ -10,7 +10,8 @@
             <h1
                     title="{{ entry }}"
                     class="translation-card__info-title">{{ entry }}</h1>
-            <time
+            <time>
+            <a
                     datetime="{{ entry.date_translation|date:'Y-m-d' }}"
                     class="translation-card__info-date"
             ><p>Начало трансляции: {{ entry.date_translation|date:"d.m.Y" }}</p></time>
