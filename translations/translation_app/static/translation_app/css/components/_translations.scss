@@ -51,11 +51,17 @@
     }
 
     &-previewContainer {
+      background-color: var(--color-item-background-color-dark);
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 100%;
       aspect-ratio: 1.5;
     }
 
     &-preview {
+      flex-grow: 0;
+
 
     }
 

@@ -9,12 +9,13 @@
                     href="{% url 'translation_app:entry' entry.id %}" 
                     class="translations__item-link"
             >
-                <img
+                <div class="translations__item-previewContainer">
+                    <img
                         src="{% if entry.image %}{{ entry.image.url }}{% else %}../../static/translation_app/media/background.png{% endif %}"
                         alt="preview for {{ entry }}"
                         class="translations__item-preview"
-
-                >
+                    >
+                </div>
                 <div class="translations__item-info">
                     <p
                             class="translations__item-title"
