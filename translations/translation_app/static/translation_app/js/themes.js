@@ -64,8 +64,6 @@ const initThemeMode = () => {
         themeMode = themeModeFromStorage;
         updateRootAttribute();
         updateSwitchButton();
-        console.log('themeMode в стораже существует')
-
     }
     else {
         if (isPreferThemeDark()) {
@@ -75,18 +73,8 @@ const initThemeMode = () => {
             themeMode = 'light';
         }
     }
-
     htmlElement.setAttribute('data-theme', themeMode);
-    console.log('themeFromStorage: ', themeModeFromStorage)
-
 }
-
-
-
-
-
-
-
 
 export const initThemeSwitch = () => {
     createThemeSwitchButton()
