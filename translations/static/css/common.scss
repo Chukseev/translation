@@ -1,4 +1,6 @@
 @import "global/fonts";
+@import "global/colors";
+@import "global/keyframes";
 @import "global/globals";
 @import "global/media";
 @import "global/mixins";
@@ -9,3 +11,4 @@
 @import "global/components/UI/button";
 @import "global/components/UI/header";
 @import "global/components/UI/burger-button";
+@import "global/components/UI/preloader";
