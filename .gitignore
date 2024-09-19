@@ -1,2 +1,4 @@
 /translations/translation_app/settings.py
 ALLOWED_HOSTS = ['192.168.0.115']git
+*.pyc
+db.sqlite3
