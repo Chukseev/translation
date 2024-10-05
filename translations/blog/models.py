@@ -4,7 +4,7 @@ from django.db import models
 class BlogEntry(models.Model):
     name = models.CharField(max_length=100)
     text = models.TextField()
-    date_added = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name_plural = 'blog entries'

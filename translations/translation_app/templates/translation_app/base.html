@@ -72,42 +72,6 @@
         </div>
 
     </footer>
-<!--    <script>-->
-<!--        const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');-->
-<!--        let switchButtonText = 'dark'-->
-<!--        let switchButtonMode = 'light'-->
-<!--        if (darkModeMediaQuery.matches){-->
-<!--            document.body.toggleAttribute('dark')-->
-<!--            switchButtonText = 'light'-->
-<!--            switchButtonMode = 'dark'-->
-
-<!--        }-->
-<!--        else-->
-<!--            switchButtonText = 'dark'-->
-<!--        const changeTheme = () => {-->
-<!--            console.log('fee')-->
-<!--            const switchButton = document.querySelector('#theme-switch')-->
-<!--            console.log(document.body.getAttribute('sdark'))-->
-<!--            if (document.body.hasAttribute('dark')) {-->
-<!--                document.body.removeAttribute('dark')-->
-<!--                switchButton.toggleAttribute('light')-->
-<!--                switchButtonMode = 'light'-->
-<!--                switchButton.removeAttribute('dark')-->
-<!--            }-->
-<!--            else {-->
-<!--                document.body.setAttribute('dark', '')-->
-<!--                switchButton.toggleAttribute('dark')-->
-<!--                switchButtonMode = 'dark'-->
-<!--                switchButton.removeAttribute('light')-->
-<!--            }-->
-
-<!--        }-->
-<!--        addEventListener('DOMContentLoaded', () => {-->
-<!--            document.body.insertAdjacentHTML("beforeend", '' +-->
-<!--                `    <button id="theme-switch" ${switchButtonMode} onclick="changeTheme()"></button>\n`)-->
-
-<!--        })-->
-<!--    </script>-->
     <script src="{% static 'translation_app/js/index.js' %}" type="module"></script>
 </body>
 </html>

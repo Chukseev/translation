@@ -1,0 +1,14 @@
+{% extends "translation_app/base.html" %}
+
+{%block content%}
+<div class="article">
+    <h1 class="article__title">{{ article }}</h1>
+    <p class="article__createdAt">{{ article.created_at}}</p>
+</div>
+{ %for image in article.images% }
+<img src="{%image.image.url%}" alt="">
+{%endfor%}
+
+
+<p class="date"></p>
+<p>{{ article.text }}</p>
