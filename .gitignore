@@ -1,4 +1,4 @@
-/translations/translation_app/settings.py
+/translations/translations/settings.py
 ALLOWED_HOSTS = ['192.168.0.115']
 *.pyc
 db.sqlite3
