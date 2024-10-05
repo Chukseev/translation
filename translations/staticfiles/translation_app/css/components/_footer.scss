@@ -1,0 +1,31 @@
+.footer {
+
+  background-color: var(--color-background-color);
+  box-shadow: 0 1px 10px var(--color-item-shadow-color);
+
+  &__container {
+
+    margin-inline: auto;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    padding-right: 40px;
+
+    @include mobile {
+      justify-content: center;
+    }
+  }
+
+  &__contacts {
+    margin-top: 20px;
+
+    &-item {
+      margin-top: 20px;
+    }
+    &-link {
+      display: inline-block;
+    }
+  }
+
+
+}

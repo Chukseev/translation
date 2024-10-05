@@ -1,0 +1,37 @@
+
+.translation-card {
+  margin-inline: auto;
+  width: 100vh;
+  max-width: 100%;
+  overflow: hidden;
+
+
+  &__video {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    background-color: #000;
+    border-radius: 10px;
+  }
+
+  &__info-container {
+    //margin-top: 10px;
+    margin-inline: 10px;
+  }
+
+  &__info-title {
+    font-size: 18px;
+
+    @include mobile {
+      font-size: 16px;
+    }
+  }
+
+  &__info-button {
+    margin-top: 10px;
+  }
+
+  &__info-description {
+    margin-top: 20px;
+  }
+}
