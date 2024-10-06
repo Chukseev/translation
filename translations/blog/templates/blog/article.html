@@ -5,10 +5,13 @@
     <h1 class="article__title">{{ article }}</h1>
     <p class="article__createdAt">{{ article.created_at}}</p>
 </div>
-{ %for image in article.images% }
-<img src="{%image.image.url%}" alt="">
-{%endfor%}
+
+{% for image in images %}
+<div><img src="{{ image.image.url }}" width="200"></div>
+    <p>{{ image.description_for_image }} --------------</p>
+{% endfor %}
 
 
 <p class="date"></p>
 <p>{{ article.text }}</p>
+{% endblock content %}

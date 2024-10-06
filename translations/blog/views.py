@@ -10,6 +10,6 @@ def blogs(request):
 
 def blog(request, blog_id):
     article = BlogEntry.objects.get(id=blog_id)
-    images = BlogImage.objects.filter(blog_entry__in=article)
+    images = article.images.all()
     context = {'article': article, 'images': images}
-    return render(request, 'blog/blog.html', context)
+    return render(request, 'blog/article.html', context)

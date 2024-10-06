@@ -16,6 +16,7 @@ class BlogEntry(models.Model):
 class BlogImage(models.Model):
     blog_entry = models.ForeignKey(BlogEntry, related_name='images', on_delete=models.CASCADE)
     image = models.ImageField(blank=True, upload_to='images/')
+    description_for_image = models.CharField(max_length=100)
 
     def __str__(self):
         return f"Image for {self.blog_entry.name}"
